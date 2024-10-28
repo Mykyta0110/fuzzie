@@ -4,11 +4,11 @@ import { currentUser } from '@clerk/nextjs/server'
 import { ProfilePicture } from './_components/ProfilePicture'
 import { ProfileForm } from '@/components/forms/ProfileForm'
 
-
 type Props = {}
 
 const Settings = async (props: Props) => {
-  const authUser = await currentUser()
+  const authUser = await currentUser();
+
   if (!authUser) return null
 
   const user = await db.user.findUnique({ where: { clerkId: authUser.id } })

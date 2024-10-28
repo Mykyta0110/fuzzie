@@ -1,9 +1,10 @@
 'use client'
 
-import React, { use, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
+import { EditUserProfileSchema } from '@/lib/types'
 import {
   Form,
   FormControl,
@@ -15,7 +16,6 @@ import {
 import { Input } from '../ui/input'
 import { Button } from '../ui/button'
 import { Loader2 } from 'lucide-react'
-import { EditUserProfileSchema } from '@/lib/types'
 
 type Props = {
   user: any
@@ -33,6 +33,8 @@ export const ProfileForm = ({ user, onUpdate }: Props) => {
     },
   })
 
+  console.log(user)
+
   const handleSubmit = async (
     values: z.infer<typeof EditUserProfileSchema>
   ) => {
@@ -42,7 +44,7 @@ export const ProfileForm = ({ user, onUpdate }: Props) => {
   }
 
   useEffect(() => {
-    form.reset({ name: user.name, email: user.email })
+    form.reset()
   }, [user])
 
   return (

@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "../ui/tooltip";
 import { Input } from "../ui/input";
 import { UserButton } from "@clerk/nextjs";
+import { Book, Headphones, Search } from "lucide-react";
 
 type Props = {}
 
@@ -35,7 +36,7 @@ const InfoBar = (props: Props) => {
         )} */}
       </span>
       <span className="flex items-center rounded-full bg-muted px-4">
-        {/* <Search /> */}
+        <Search />
         <Input
           placeholder="Quick Search"
           className="border-none bg-transparent"
@@ -44,7 +45,7 @@ const InfoBar = (props: Props) => {
       <TooltipProvider>
         <Tooltip delayDuration={0}>
           <TooltipTrigger>
-            {/* <Headphones /> */}
+            <Headphones />
           </TooltipTrigger>
           <TooltipContent>
             <p>Contact Support</p>
@@ -54,7 +55,7 @@ const InfoBar = (props: Props) => {
       <TooltipProvider>
         <Tooltip delayDuration={0}>
           <TooltipTrigger>
-            {/* <Book /> */}
+            <Book />
           </TooltipTrigger>
           <TooltipContent>
             <p>Guide</p>
